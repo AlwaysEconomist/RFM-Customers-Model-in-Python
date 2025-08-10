@@ -1,5 +1,6 @@
 # Recency, Frequency and Monetary (RFM) Analysis in Python
 
+<img width="1888" height="904" alt="Screenshot 2025-08-09 084143" src="https://github.com/user-attachments/assets/7f8461c3-5ca4-4032-b035-e0f871d6f149" />
 
 
 
@@ -201,3 +202,5 @@ fig_treemap.show()
 
 
 ```
+<img width="1812" height="888" alt="Screenshot 2025-08-09 084115" src="https://github.com/user-attachments/assets/8272931a-62aa-47f5-8049-2ffddb6ee228" />
+
