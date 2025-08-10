@@ -43,7 +43,7 @@ import plotly.colors
 
 data = pd.read_csv(r"C:\Users\phabr\Downloads\retail_csv.csv")
 
-print("🔹 Dataset Loaded")
+print(" Dataset Loaded")
 print(data.head())       # Display first 5 rows
 print(data.tail())       # Display last 5 rows
 print(data.info())       # Data types + missing values
@@ -64,7 +64,7 @@ data.drop_duplicates(subset=['InvoiceNo'], inplace=True)
 # Calculate total amount per transaction
 data['TotalAmount'] = data['Quantity'] * data['UnitPrice']
 
-print("\n✅ After cleaning:")
+print("\n After cleaning:")
 print(data.info())
 
 
@@ -143,7 +143,7 @@ def assign_segment(score):
 
 rfm['RFM_Segment_Labels'] = rfm['RFM_Score'].apply(assign_segment)
 
-print("\n🏷️ RFM Segment Labels Assigned")
+print("\n RFM Segment Labels Assigned")
 print(rfm.head())
 
 # Assign descriptive customer segments
@@ -156,7 +156,7 @@ rfm.loc[(rfm['RFM_Score'] >= 5) & (rfm['RFM_Score'] < 6), 'RFM_Customer_Segment'
 rfm.loc[(rfm['RFM_Score'] >= 4) & (rfm['RFM_Score'] < 5), 'RFM_Customer_Segment'] = "Can't Lose"
 rfm.loc[(rfm['RFM_Score'] >= 3) & (rfm['RFM_Score'] < 4), 'RFM_Customer_Segment'] = 'Lost'
 
-print("\n📌 Descriptive Segments Assigned:")
+print("\n Descriptive Segments Assigned:")
 print(rfm[['RFM_Score', 'RFM_Customer_Segment']].head(10))
 
 
