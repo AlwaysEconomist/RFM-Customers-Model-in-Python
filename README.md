@@ -64,8 +64,8 @@ print(data.describe())   # Numerical statistics
 ```
 Dataset Loaded:
 
-|InvoiceNo|StockCode|Description|Quantity|InvoiceDate|UnitPrice|CustomerID|Country|
-|--------|--------|--------|--------|--------|--------|--------|--------|
+|InvoiceNo|StockCode|Description      |Quantity|InvoiceDate           |UnitPrice|CustomerID|Country            |
+|--------|--------|---------------------------|--------|---------------------|--------|--------|----------------------|
 |10505379|86915247|Ocean Puzzle #079|2|12/1/2022 0:11|10.59|740545407|United Kingdom|
 |14007363|13697118|Marble Calendar #455|1|12/1/2022 0:24|9.89|410379222|United Kingdom|
 |34772415|72171995|Marble Cheese Board #207|1|12/1/2022 0:39|13.58|465349957|United Kingdom|
