@@ -62,6 +62,7 @@ print(data.info())       # Data types + missing values
 print(data.describe())   # Numerical statistics
 
 ```
+Dataset Loaded:
 
 |InvoiceNo|StockCode|Description|Quantity|InvoiceDate|UnitPrice|CustomerID|Country|
 |--------|--------|--------|--------|--------|--------|--------|--------|
@@ -123,6 +124,8 @@ rfm.rename(
 )
 
 ```
+RFM Table:
+
 |CustomerID|Recency|Frequency|Monetary|
 |--------|--------|--------|--------|
 |100282977|5|9|276.22|
@@ -198,6 +201,8 @@ print(rfm.head())
 
 ```
 
+RFM Segment Labels Assigned:
+
 |CustomerID|Recency|Frequency|Monetary|R|F|M|RFM_Segment|RFM_Score|RFM_Segment_Labels|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 |100282977|5|9|276.22|4|2|1|421|7|Mid Value|
@@ -207,7 +212,7 @@ print(rfm.head())
 |101215109|34|15|3055.87|3|4|4|344|11|High Value|
 
 
-# Count customers in each segment and Visualization - Bar Chart
+## Customer Distribution by Segment and Visualization - Bar Chart
 
 ```
 segment_counts = rfm['RFM_Segment_Labels'].value_counts().reset_index()
@@ -257,7 +262,7 @@ Acquiring new low-value customers is often more expensive than retaining or upgr
 Example Impact: A low-value customer spending $50 once a year may cost more to re-engage (e.g., $10 in marketing) than their contribution, so campaigns should be low-cost and scalable.
 
   
-# Assign descriptive customer segments
+## Assign descriptive customer segments
 ```
 rfm['RFM_Customer_Segment'] = ''  # Initialize
 
