@@ -212,7 +212,7 @@ RFM Segment Labels Assigned:
 |101215109|34|15|3055.87|3|4|4|344|11|High Value|
 
 
-## Customer Distribution by Segment and Visualization - Bar Chart
+## Customers Distribution by Segment and Visualization - Bar Chart
 
 ```
 segment_counts = rfm['RFM_Segment_Labels'].value_counts().reset_index()
