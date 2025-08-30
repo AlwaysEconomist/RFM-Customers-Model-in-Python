@@ -1,8 +1,4 @@
 
-                                    # ===========================================
-                                    # RFM Customer Analysis 
-                                    # ===========================================
-
 # Recency, Frequency and Monetary (RFM) Analysis in Python
 
 Many businesses stumble by treating all customers the same, leaning on generic marketing tactics and uniform messaging, yet struggle with flat revenue growth. The reality is, customers differ greatly in their value and behavior. RFM Analysis offers a clear, data-driven approach to identify your most valuable customers and decode their purchasing patterns.
@@ -115,10 +111,6 @@ rfm.rename(
     inplace=True
 )
 
-# Calculate Quantiles
-
-quantiles = rfm.quantile(q=[0.25, 0.50, 0.75])
-
 ```
 ## Define R, F, M scoring functions
 
@@ -130,6 +122,10 @@ Now, we’ll transform the raw RFM values into scores (1-4) to create customer s
 Here’s how we can segment our customers:
 
 ```
+# Calculate Quantiles
+
+quantiles = rfm.quantile(q=[0.25, 0.50, 0.75])
+
 def RScore(x, p, d):
     # Assign R, F, or M score based on quantiles
     if p == 'Recency':  # Lower recency = better score
