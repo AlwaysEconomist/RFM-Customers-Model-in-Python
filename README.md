@@ -5,8 +5,8 @@ Many businesses stumble by treating all customers the same, leaning on generic m
 In this project, I worked on a practical, step-by-step implementation of RFM Analysis using Python, equipping business to design targeted retention strategies and supercharge revenue growth.
 
 
+<img width="1394" height="450" alt="image" src="https://github.com/user-attachments/assets/dc940e82-845d-4b35-8562-cd3e7e2c5fce" />
 
-<img width="1812" height="888" alt="Screenshot 2025-08-09 084115" src="https://github.com/user-attachments/assets/63c04d4d-63e8-49fc-9f50-92842a52b971" />
 
 
 ## Dataset Description
@@ -23,7 +23,7 @@ In this project, I worked on a practical, step-by-step implementation of RFM Ana
  - Country     : Country where the customer resides.
 
 Notes:
-- Contains transactions from 01/12/2022 to 09/12/2024 for a UK-based online retailer.
+- Contains transactions from 01/12/2022 and 30/06/2023 for a UK-based online retailer.
 - The company sells unique, all-occasion gifts.
 - Many customers are wholesalers.
 
@@ -66,11 +66,11 @@ Dataset Loaded:
 
 |InvoiceNo|StockCode|Description      |Quantity|InvoiceDate           |UnitPrice|CustomerID|Country            |
 |--------|--------|---------------------------|--------|---------------------|--------|--------|----------------------|
-|10505379|86915247|Ocean Puzzle #079|2|12/1/2022 0:11|10.59|740545407|United Kingdom|
-|14007363|13697118|Marble Calendar #455|1|12/1/2022 0:24|9.89|410379222|United Kingdom|
-|34772415|72171995|Marble Cheese Board #207|1|12/1/2022 0:39|13.58|465349957|United Kingdom|
-|19313795|18466476|Rustic Lamp #115|1|12/1/2022 1:27|30.31|164651382|United Kingdom|
-|68072714|56357100|Floral Calendar #476|1|12/1/2022 1:57|8.99|551116138|United Kingdom|
+|32062183 |30387470 |Anything Gift|6|2023-04-05 04:32:53|1.55|228989911 |United Kingdom|
+|17870460 |35862507 |Tv Gift|10|2023-04-27 12:38:01|68.01|772492132 |United Kingdom|
+|31648991 |91819864 |Mrs Gift|5|2023-04-21 06:12:08|47.58|608534700|United Kingdom|
+|66898691|21535859 |May Gift|9|2023-03-10 19:20:11|8.30|380841810|United Kingdom|
+|59508416|93622551 |Study Gift|6|2023-06-07 21:03:18|36.64|150595719 |United Kingdom|
 
 ## Data Cleaning and Preparation
 
@@ -78,7 +78,7 @@ Dataset Loaded:
 # Remove rows with missing CustomerID
 data.dropna(subset=['CustomerID'], inplace=True)
 
-# Convert InvoiceDate to datetime
+# Ensure InvoiceDate is in datetime format
 data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'])
 
 # Remove duplicate InvoiceNo entries (if any)
@@ -128,11 +128,11 @@ RFM Table:
 
 |CustomerID|Recency|Frequency|Monetary|
 |--------|--------|--------|--------|
-|100282977|5|9|276.22|
-|100373571|9|13|380.34|
-|100578073|19|11| 295.34|
-|100893217|5|10| 321.76|
-|101215109|34|15|3055.87|
+|100203220 |3|12|6372.48|
+|100360402|23|14|8136.94|
+|100460213|7|19| 11671.32|
+|101018341 |3|13| 5300.86|
+|101210606|4|17|9254.03|
 
 ## Define R, F, M scoring functions
 
@@ -205,11 +205,11 @@ RFM Segment Labels Assigned:
 
 |CustomerID|Recency|Frequency|Monetary|R|F|M|RFM_Segment|RFM_Score|RFM_Segment_Labels|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-|100282977|5|9|276.22|4|2|1|421|7|Mid Value|
-|100373571|9|13|380.34|4|4|3|442|10|High Value|
-|100578073|19|11| 295.34|4|3|1|431|8|Mid Value|
-|100893217|5|10| 321.76|4|2|2|422|8|Mid Value|
-|101215109|34|15|3055.87|3|4|4|344|11|High Value|
+|100203220 |3|12|6372.48|4|1|1|411|6|Mid Value|
+|100360402|23|14|8136.94|1|1|2|112|4|Low Value|
+|100460213|7|19| 11671.32|3|3|4|334|10|High Value|
+|101018341 |3|13| 5300.86|4|1|1|411|6|Mid Value|
+|101210606|4|17|9254.03|4|3|3|433|10|High Value|
 
 
 ## Customers Distribution by Segment and Visualization - Bar Chart
@@ -231,12 +231,13 @@ fig_bar = px.bar(
 fig_bar.show()
 
 ```
-<img width="1888" height="904" alt="Screenshot 2025-08-09 084143" src="https://github.com/user-attachments/assets/8d9d9973-5992-4729-b60d-5d16813e373f" />
+<img width="1394" height="450" alt="image" src="https://github.com/user-attachments/assets/9b1163a7-4bba-43f1-8366-6b58ccd6223d" />
+
 
 
 Based on the provided customer segmentation analysis, the customers have been categorized into three segments:
 
- - High-Value Customers (1692, 33.84 % of the total)
+ - High-Value Customers (1135, 37.83 % of the total)
 
 These customers are the backbone of revenue, likely contributing the majority of profits (per the Pareto principle, ~20% of customers often drive ~80% of revenue).
 They are loyal, engaged, and likely to respond well to upselling, cross-selling, or premium offerings (e.g., subscriptions, exclusive products).
@@ -244,7 +245,7 @@ Retention is critical: Losing these customers would significantly impact revenue
 
 Example of Impact: If a high-value customer spends $1,000 monthly and stops purchasing, the business could lose $12,000 annually per customer.
 
- - Medium-Value Customers (2611, 52.22 % of the total)
+ - Medium-Value Customers (1427, 47.57% of the total)
 
 These customers are valuable but not as critical as high-value customers. They have potential to become high-value with the right engagement.
 Their slightly lower recency suggests they may need nudging to purchase more regularly.
@@ -253,7 +254,7 @@ They contribute significantly to revenue but are more price-sensitive or less lo
 Example Impact: A medium-value customer spending $300 every two months could be nudged to spend $400 monthly with targeted promotions, 
 increasing annual revenue per customer from $1,800 to $4,800.
 
- - Low-Value Customers (697, 14.38 % of the total)
+ - Low-Value Customers (438, 14.6 % of the total)
  
 These customers contribute the least to revenue and may include one-time or sporadic buyers.
 They are at high risk of churn and may not be worth heavy investment unless they show potential to move to a higher-value segment.
@@ -287,7 +288,14 @@ Here’s a breakdown of some key segments and their typical scores:
 
 ## Visualization - Treemap
 
-``` 
+```
+
+# Group the rfm DataFrame by RFM_Segment_Labels and RFM_Customer_Segment, and count the number of occurrences in each group
+segment_product_counts = rfm.groupby(['RFM_Segment_Labels', 'RFM_Customer_Segment']).size().reset_index(name='Count')
+
+# Sort the grouped data by Count in descending order to prioritize segments with higher counts
+segment_product_counts = segment_product_counts.sort_values('Count', ascending=False)
+
 segment_product_counts = (
     rfm.groupby(['RFM_Segment_Labels', 'RFM_Customer_Segment'])
        .size()
@@ -307,8 +315,55 @@ fig_treemap.show()
 
 ```
 
-<img width="1812" height="888" alt="Screenshot 2025-08-09 084115" src="https://github.com/user-attachments/assets/9a21b6da-a8f1-4543-8f57-e69a4f9cf130" />
+<img width="1394" height="450" alt="image" src="https://github.com/user-attachments/assets/28fa4aba-651a-4b02-b60b-d21879038ca6" />
 
+
+## Calculate mean R, F, M scores for each RFM segment
+
+```
+segment_scores = rfm.groupby('RFM_Customer_Segment')[['R', 'F', 'M']].mean().reset_index()
+
+
+# Create the figure
+fig = go.Figure()
+
+# Add bar for Recency score
+fig.add_trace(go.Bar(
+    x=segment_scores['RFM_Customer_Segment'],
+    y=segment_scores['R'],
+    name='Recency Score',
+    marker_color='rgb(158,202,225)'  
+))
+
+# Add bar for Frequency score
+fig.add_trace(go.Bar(
+    x=segment_scores['RFM_Customer_Segment'],
+    y=segment_scores['F'],
+    name='Frequency Score',
+    marker_color='rgb(94,158,217)' 
+))
+
+# Add bar for Monetary score
+fig.add_trace(go.Bar(
+    x=segment_scores['RFM_Customer_Segment'],
+    y=segment_scores['M'],
+    name='Monetary Score',
+    marker_color='rgb(32,102,148)' 
+))
+
+# Update the layout
+fig.update_layout(
+    title='Comparison of RFM Segments based on Recency, Frequency, and Monetary Scores',  # Fixed typo
+    xaxis_title='RFM Segments',
+    yaxis_title='Score',
+    barmode='group',
+    showlegend=True
+)
+
+# Show the plot
+fig.show()
+```
+<img width="1394" height="450" alt="image" src="https://github.com/user-attachments/assets/b6931159-d1bb-4fe8-8048-856e0c031d57" />
 
 ## Concrete Business Implications and Recommendations
 
