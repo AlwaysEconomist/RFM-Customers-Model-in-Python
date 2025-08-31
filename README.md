@@ -53,7 +53,7 @@ import plotly.colors
 ## Load and inspect the dataset
 
 ```
-data = pd.read_csv(r"C:\Users\phabr\Downloads\retail_csv.csv")
+data = pd.read_csv(r"C:\Users\phabr\Downloads\online_retail_rfm_50k.csv")
 
 print(" Dataset Loaded")
 print(data.head())       # Display first 5 rows
@@ -281,8 +281,8 @@ Now, we assign each customer to a segment based on their combined score using a 
 Here’s a breakdown of some key segments and their typical scores:
 
  - VIP/Loyal: Your best customers. They often buy and spend the most.
- - Potiential Loyal: High Frequency and monetary value, but their recency might be slightly lower than that of VIP.
- - At risk/ Can't lose: Bought recently but haven’t purchased frequently or spent much.
+ - Potiential Loyal: These customers exhibit high frequency and monetary value but may have slightly lower recency compared to VIPs, or vice versa, requiring further analysis to identify key areas for targeted engagement.
+ - At Risk/Can't Lose: They might have recent purchases but exhibit low frequency or monetary value, or vice versa, necessitating targeted strategies to boost engagement and retention.
  - Lost Customers: Haven’t bought in a long time, don’t buy often, and don’t spend much.
 
 
@@ -365,28 +365,34 @@ fig.show()
 ```
 <img width="1394" height="450" alt="image" src="https://github.com/user-attachments/assets/b6931159-d1bb-4fe8-8048-856e0c031d57" />
 
+
+After analysis, for the Potential Loyal, At Risk, and Can't Lose customer categories, we observe that the recency score is relatively good, while frequency and monetary scores are lower, indicating opportunities for improvement. Specifically:
+  - Potential Loyal: The recency score is strong (around 2.5), suggesting recent engagement, but the frequency (approximately 2.0) and monetary (around 2.0) scores lag behind, particularly compared to the VIP/Loyal segment. This suggests a need to enhance purchase frequency and spending through targeted incentives or loyalty programs to convert them into VIP/Loyal customers.
+  - At Risk: This segment shows a decent recency score (around 2.0), indicating recent purchases, but both frequency (around 1.5) and monetary (around 1.5) scores are notably lower. Efforts should focus on re-engaging these customers with personalized offers to boost their purchase frequency and average spend, preventing potential churn.
+  - Can't Lose: The recency score is moderate (around 1.5), but frequency and monetary scores are the lowest among these segments (both around 1.0). This highlights a critical need to investigate why these customers, despite recent activity, are not purchasing frequently or spending more. Strategies could include analyzing their behavior further and implementing retention campaigns to elevate their engagement.
+
+
+
 ## Concrete Business Implications and Recommendations
 
  - Resource Allocation:
    
- By focusing 60–70% of marketing and retention budgets on high-value customers to maximize ROI, allocating 20–30% to medium-value customers to convert them into high-value and
-using low-cost, automated strategies for low-value customers to minimize expenses.
+Allocate 60–70% of marketing and retention budgets to VIP/Loyal customers to maximize ROI, given their high recency, frequency, and monetary scores (around 3.0–3.5). Dedicate 20–30% to Potential Loyal customers (recency ~2.5, frequency and monetary ~2.0) to convert them into high-value segments through targeted campaigns. Use low-cost, automated strategies (e.g., email reminders) for At Risk (recency ~2.0, frequency and monetary ~1.5) and Can't Lose (recency ~1.5, frequency and monetary ~1.0) customers to minimize expenses while maintaining engagement.
+
 
  - Revenue Growth:
 
-Upselling high-value customers (e.g., premium products) could increase their average spend by 10–20%. Converting 10% of medium-value customers to high-value could boost revenue significantly (e.g., $60,000 in the example above if 300 medium-value customers increase spend to $350). 
+Upsell VIP/Loyal customers with premium products to potentially increase their average spend by 10–20%, leveraging their strong monetary score (~3.5). Converting at least 10% of Potential Loyal customers (e.g., 300 customers) to VIP/Loyal status—by boosting their frequency and monetary scores—could significantly enhance revenue (e.g., $60,000 if each increases spend to $350). For At Risk and Can't Lose segments, focus on re-engagement to gradually elevate their spending potential.
 
 
 - Customer Lifetime Value (CLV):
 
-High-value customers have the highest CLV, so retention efforts here yield the greatest long-term returns. Medium-value customers have moderate CLV but can be nurtured to increase it.
+VIP/Loyal customers exhibit the highest CLV due to their superior recency, frequency, and monetary scores, making retention efforts here the most lucrative for long-term returns. Potential Loyal customers have a moderate CLV that can be nurtured with strategic interventions to improve frequency and monetary value. At Risk and Can't Lose customers have lower CLV but can be selectively retained based on churn risk assessments.
+
 
 - Churn Prevention:
 
-Monitor high-value customers for signs of reduced recency or frequency and act quickly (e.g., personalized offers). For medium-value customers, focus on improving recency through timely campaigns. For low-value customers, use churn prediction models to identify those worth saving.
-
-
-
+Monitor VIP/Loyal customers for declines in recency or frequency (currently ~3.0) and respond promptly with personalized offers to maintain their engagement. For Potential Loyal customers, enhance recency (currently ~2.5) through timely campaigns to prevent slippage. For At Risk and Can't Lose segments, deploy churn prediction models to identify salvageable customers and apply low-cost retention tactics (e.g., discounts) to improve their frequency and monetary scores (currently ~1.0–1.5).
 
 
 
