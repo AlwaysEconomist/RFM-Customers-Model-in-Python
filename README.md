@@ -1,5 +1,5 @@
 
-# Recency, Frequency and Monetary (RFM) Analysis in Python
+# Recency, Frequency and Monetary (RFM) Analysis 
 
 Many businesses stumble by treating all customers the same, leaning on generic marketing tactics and uniform messaging, yet struggle with flat revenue growth. The reality is, customers differ greatly in their value and behavior. RFM Analysis offers a clear, data-driven approach to identify the most valuable customers and decode their purchasing patterns.
 In this project, as a Data Analyst for Needpam, I worked on a practical, step-by-step implementation of RFM Analysis using Python, equipping business to design targeted retention strategies and supercharge revenue growth.
@@ -19,6 +19,9 @@ By combining these three metrics, you can group customers into different segment
 ## Findings and Insights
 
 Based on the provided customer segmentation analysis, the customers have been categorized into three segments:
+
+<img width="1433" height="565" alt="Screenshot 2025-11-03 134340" src="https://github.com/user-attachments/assets/1085ed99-bd24-43c6-b920-9187f5b17da9" />
+
 
  - High-Value Customers (1135, 37.83 % of the total)
 
@@ -45,15 +48,20 @@ Acquiring new low-value customers is often more expensive than retaining or upgr
 
 Example Impact: A low-value customer spending $50 once a year may cost more to re-engage (e.g., $10 in marketing) than their contribution, so campaigns should be low-cost and scalable.
 
+By segmenting each category into segments, we have:
+
+<img width="1358" height="488" alt="image" src="https://github.com/user-attachments/assets/bc07bee3-5e3b-4779-a743-b15b87df95a0" />
+
 
 Here’s a breakdown of some key segments and their typical scores:
 
- - VIP/Loyal: Your best customers. They often buy and spend the most.
+ - VIP/Loyal: The best customers. They often buy and spend the most.
  - Potiential Loyal: These customers exhibit high frequency and monetary value but may have slightly lower recency compared to VIPs, or vice versa, requiring further analysis to identify key areas for targeted engagement.
  - At Risk/Can't Lose: They might have recent purchases but exhibit low frequency or monetary value, or vice versa, necessitating targeted strategies to boost engagement and retention.
  - Lost Customers: Haven’t bought in a long time, don’t buy often, and don’t spend much.
 
 
+<img width="1427" height="520" alt="image" src="https://github.com/user-attachments/assets/c284255a-bb2c-47c0-9eaa-e21810dece8e" />
 
 
 After analysis, for the Potential Loyal, At Risk, and Can't Lose customer categories, we observe that the recency score is relatively good, while frequency and monetary scores are lower, indicating opportunities for improvement. Specifically:
