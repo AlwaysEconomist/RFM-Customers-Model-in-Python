@@ -1,14 +1,12 @@
 
 # RFM Customer Segmentation Analysis (Recency, Frequency and Monetary)
 
-
 # Import the necessary libraries
 import pandas as pd
 from datetime import datetime as dt, timedelta
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.colors
-
 
 # Load and inspect the dataset
 
@@ -167,10 +165,8 @@ segment_product_counts = rfm.groupby(['RFM_Segment_Labels', 'RFM_Customer_Segmen
 # Sort the grouped data by Count in descending order to prioritize segments with higher counts
 segment_product_counts = segment_product_counts.sort_values('Count', ascending=False)
 
-
 # Visualization - Treemap
- 
- 
+  
 segment_product_counts = (
     rfm.groupby(['RFM_Segment_Labels', 'RFM_Customer_Segment'])
        .size()
@@ -188,11 +184,8 @@ fig_treemap = px.treemap(
 )
 fig_treemap.show()
 
-
 # Calculate mean R, F, M scores for each RFM segment
 segment_scores = rfm.groupby('RFM_Customer_Segment')[['R', 'F', 'M']].mean().reset_index()
-
-
 
 
 # Calculate mean RFM scores per segment
@@ -249,6 +242,7 @@ fig.update_layout(
 fig.show()
 
 rfm.to_csv('final_analysis.csv')
+
 
 
 
