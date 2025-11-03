@@ -10,7 +10,8 @@ In this project, I worked on a practical, step-by-step implementation of RFM Ana
 
 
 ## Dataset Description
-                      Online Retail Dataset, Transactions of a UK-based non-store online retail  
+                     
+            Online Retail Dataset, Transactions of a UK-based non-store online retail  
 
  - InvoiceNo   : Unique 8-digit invoice number for each transaction. 
               Invoices starting with 'C' indicate cancellations.
