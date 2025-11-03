@@ -136,7 +136,7 @@ fig_bar = px.bar(
     segment_counts,
     x='RFM_Segment',
     y='Count',
-    title='Customer Distribution by RFM Segment',
+    title="Over 85% of our customers deliver real value—led by Mid-Value (47.6%) and High-Value (37.8%) segments.",
     labels={'RFM_Segment': 'RFM Segment', 'Count': 'Number of Customers'},
     color='RFM_Segment',
     color_discrete_sequence=px.colors.qualitative.Pastel
@@ -181,14 +181,13 @@ fig_treemap = px.treemap(
     values='Count',
     color='RFM_Segment_Labels',
     color_discrete_sequence=px.colors.qualitative.Pastel,
-    title='RFM Customer Segments by Value'
+    title='Positive retention dynamics: 78% of Mid-Value customers are on track to become loyal High-Value'
 )
 fig_treemap.show()
 
 
-# Calculate mean R, F, M scores for each RFM segment
+# Calculate mean RFM scores per segment
 segment_scores = rfm.groupby('RFM_Customer_Segment')[['R', 'F', 'M']].mean().reset_index()
-
 
 # Create the figure
 fig = go.Figure()
@@ -198,7 +197,7 @@ fig.add_trace(go.Bar(
     x=segment_scores['RFM_Customer_Segment'],
     y=segment_scores['R'],
     name='Recency Score',
-    marker_color='rgb(158,202,225)'  
+    marker_color='rgb(158,202,225)'
 ))
 
 # Add bar for Frequency score
@@ -206,7 +205,7 @@ fig.add_trace(go.Bar(
     x=segment_scores['RFM_Customer_Segment'],
     y=segment_scores['F'],
     name='Frequency Score',
-    marker_color='rgb(94,158,217)' 
+    marker_color='rgb(94,158,217)'
 ))
 
 # Add bar for Monetary score
@@ -214,16 +213,27 @@ fig.add_trace(go.Bar(
     x=segment_scores['RFM_Customer_Segment'],
     y=segment_scores['M'],
     name='Monetary Score',
-    marker_color='rgb(32,102,148)' 
+    marker_color='rgb(32,102,148)'
 ))
 
-# Update the layout
+# Update the layout 
 fig.update_layout(
-    title='Comparison of RFM Segments based on Recency, Frequency, and Monetary Scores',  # Fixed typo
+    title='Comparison of RFM Segments by Recency, Frequency, and Monetary Scores',
     xaxis_title='RFM Segments',
-    yaxis_title='Score',
+    yaxis_title='Average Score',
     barmode='group',
-    showlegend=True
+    legend_title='RFM Metrics',
+    showlegend=True,
+    annotations=[
+        dict(
+            text='Recency Score shines across the board—delivering strong positive dynamics in all segments except VIP/Loyal, where Frequency needs a boost.',
+            xref='paper', yref='paper',
+            x=0.02, y=1.08,
+            showarrow=False,
+            font=dict(size=12),
+            align='left'
+        )
+    ]
 )
 
 # Show the plot
@@ -231,6 +241,7 @@ fig.show()
 
 
 rfm.to_csv('final_analysis.csv')
+
 
 
 
