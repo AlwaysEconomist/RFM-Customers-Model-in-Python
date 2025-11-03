@@ -1,7 +1,6 @@
 
 # RFM Customer Segmentation Analysis (Recency, Frequency and Monetary)
 
-
 # Import the necessary libraries
 import pandas as pd
 from datetime import datetime as dt, timedelta
@@ -12,7 +11,7 @@ import plotly.colors
 
 # Load and inspect the dataset
 
-data = pd.read_csv(r"C:\Users\phabr\Downloads\online_retail_rfm_50k.csv")
+data = pd.read_csv(r"C:\Users\phabr\Downloads\dataset_rfm.csv")
 
 print(" Dataset Loaded")
 print(data.head())       # Display first 5 rows
@@ -232,6 +231,7 @@ fig.show()
 
 
 rfm.to_csv('final_analysis.csv')
+
 
 
 
