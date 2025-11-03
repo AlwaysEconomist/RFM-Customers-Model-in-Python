@@ -126,12 +126,6 @@ segment_counts = rfm['RFM_Segment_Labels'].value_counts().reset_index()
 segment_counts.columns = ['RFM_Segment', 'Count']
 segment_counts = segment_counts.sort_values('RFM_Segment')
 
-# Number of customers by Segment and Visualization - Bar Chart
-
-segment_counts = rfm['RFM_Segment_Labels'].value_counts().reset_index()
-segment_counts.columns = ['RFM_Segment', 'Count']
-segment_counts = segment_counts.sort_values('RFM_Segment')
-
 fig_bar = px.bar(
     segment_counts,
     x='RFM_Segment',
@@ -185,8 +179,6 @@ fig_treemap = px.treemap(
 fig_treemap.show()
 
 # Calculate mean R, F, M scores for each RFM segment
-segment_scores = rfm.groupby('RFM_Customer_Segment')[['R', 'F', 'M']].mean().reset_index()
-
 
 # Calculate mean RFM scores per segment
 segment_scores = rfm.groupby('RFM_Customer_Segment')[['R', 'F', 'M']].mean().reset_index()
@@ -242,6 +234,7 @@ fig.update_layout(
 fig.show()
 
 rfm.to_csv('final_analysis.csv')
+
 
 
 
