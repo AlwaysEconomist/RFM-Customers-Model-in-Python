@@ -180,7 +180,6 @@ fig_treemap.show()
 
 # Calculate mean R, F, M scores for each RFM segment
 
-# Calculate mean RFM scores per segment
 segment_scores = rfm.groupby('RFM_Customer_Segment')[['R', 'F', 'M']].mean().reset_index()
 
 # Create the figure
@@ -234,6 +233,7 @@ fig.update_layout(
 fig.show()
 
 rfm.to_csv('final_analysis.csv')
+
 
 
 
