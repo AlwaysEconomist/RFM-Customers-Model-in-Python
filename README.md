@@ -53,13 +53,12 @@ By segmenting each category into segments, we have:
 <img width="1358" height="488" alt="image" src="https://github.com/user-attachments/assets/bc07bee3-5e3b-4779-a743-b15b87df95a0" />
 
 
-Here’s a breakdown of some key segments and their typical scores:
-
  - VIP/Loyal: The best customers. They often buy and spend the most.
  - Potiential Loyal: These customers exhibit high frequency and monetary value but may have slightly lower recency compared to VIPs, or vice versa, requiring further analysis to identify key areas for targeted engagement.
  - At Risk/Can't Lose: They might have recent purchases but exhibit low frequency or monetary value, or vice versa, necessitating targeted strategies to boost engagement and retention.
  - Lost Customers: Haven’t bought in a long time, don’t buy often, and don’t spend much.
 
+Here’s a breakdown of some key segments and their typical scores:
 
 <img width="1427" height="520" alt="image" src="https://github.com/user-attachments/assets/c284255a-bb2c-47c0-9eaa-e21810dece8e" />
 
