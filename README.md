@@ -2,7 +2,7 @@
 # Recency, Frequency and Monetary (RFM) Analysis 
 
 Many businesses stumble by treating all customers the same, leaning on generic marketing tactics and uniform messaging, yet struggle with flat revenue growth. The reality is, customers differ greatly in their value and behavior. RFM Analysis offers a clear, data-driven approach to identify the most valuable customers and decode their purchasing patterns.
-In this project, as a Data Analyst at Needpam, I worked on a practical, step-by-step implementation of RFM Analysis using Python, equipping business to design targeted retention strategies and supercharge revenue growth.
+In this project, as a Data Analyst at Needpam, I worked on a practical, step-by-step implementation of RFM Analysis using Python, equipping the marketing team to design targeted retention strategies and supercharge revenue growth.
 
 
  ## What is RFM Analysis?
